@@ -26,7 +26,7 @@
               </el-main> 
       </el-container>
             
-        <InputField/>
+        
                
     </el-container>
    
