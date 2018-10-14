@@ -8,7 +8,7 @@
         <vue-speech v-if="record" @onTranscriptionEnd="onEnd" />
 
         <br>
-        <textarea >{{text}}</textarea>
+        <textarea>{{text}}</textarea>
     </div>
 
 </template>
