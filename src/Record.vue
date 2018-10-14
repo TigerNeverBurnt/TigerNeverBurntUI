@@ -12,29 +12,27 @@
 
 
     export default {
-        name: "Record",
-        data() {
+        name:"Record",
+        data(){
             return {
                 record: false,
-                words: [],
+                words:[],
                 text: "",
-                st: "radio_button_checked",
-                activeColor: 'indigo'
+                st: "Start"
             }
 
         },
-        created: {
-            func() {
+        created:{
+            func(){
                 this.text = Vue.VueLocalStorage.get('text');
             }
         }
         ,
-        methods: {
-            changeRecord() {
+        methods:{
+            changeRecord(){
                 this.record = !this.record;
-                if (this.record == true) {
-                    this.st = "stop";
-                    this.activeColor = "pink";
+                if(this.record == true){
+                    this.st = "Stop";
                 }
                 else {
                     this.st = "radio_button_checked";
@@ -45,7 +43,7 @@
 
                 }
             },
-            onEnd({lastSentence, transcription}) {
+            onEnd ({ lastSentence, transcription }) {
                 this.words = transcription
                 this.text = this.text + lastSentence
 
