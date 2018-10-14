@@ -1,6 +1,6 @@
 <template>
     <div>
-        <textArea></textArea>
+        <textArea style="background-color: aquamarine"></textArea>
         <textTitle></textTitle>
     </div>
 </template>
@@ -13,21 +13,10 @@ export default {
   components: {
     textTitle,
     textArea
-  },
+  }
 };
 </script>
 
 <style>
-#app {
-  font-family: Helvetica, sans-serif;
-  text-align: center;
-}
 
-.type1 {
-  width: 2%;
-  height: 2%;
-  text-align: center;
-  border-radius: 50%;
-  border: 2px solid black;
-}
 </style>

@@ -1,6 +1,8 @@
 <template>
     <div>
-        <v-btn fab dark :color="activeColor" v-on:click="changeRecord">
+        <v-btn fab dark fixed
+               bottom
+               right :color="activeColor" v-on:click="changeRecord">
             <v-icon dark>{{st}}</v-icon>
         </v-btn>
         <vue-speech @onTranscriptionEnd="onEnd"/>
