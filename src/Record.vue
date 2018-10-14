@@ -18,7 +18,8 @@
                 record: false,
                 words:[],
                 text: "",
-                st: "Start"
+                st: "radio_button_checked",
+                activeColor: "indigo"
             }
 
         },
@@ -32,7 +33,8 @@
             changeRecord(){
                 this.record = !this.record;
                 if(this.record == true){
-                    this.st = "Stop";
+                    this.st = "stop";
+                    this.activeColor = "pink";
                 }
                 else {
                     this.st = "radio_button_checked";
