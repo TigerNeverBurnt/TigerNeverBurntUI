@@ -1,10 +1,14 @@
 <template>
     <div >
-        <button class="bt blue big" v-on:click="record = !record">
-            {{re}}
+        <button class="bt blue big" v-on:click="changeRecord">
+            {{st}}
             <span>Two seconds</span>
         </button>
-        <vue-speech v-if="record" @onTranscriptionEnd="onEnd" hidden/>
+
+        <vue-speech v-if="record" @onTranscriptionEnd="onEnd" />
+
+        <br>
+        <textarea >{{text}}</textarea>
     </div>
 
 </template>
@@ -17,17 +21,36 @@
         data(){
             return {
                 record: false,
-                re: "Voice",
-                test: true,
-                words:[]
+                words:[],
+                text: "",
+                st: "Start"
             }
 
         },
+        created:{
+            func(){
+                this.text = Vue.VueLocalStorage.get('text');
+            }
+        }
+        ,
         methods:{
+            changeRecord(){
+                this.record = !this.record;
+                if(this.record == true){
+                    this.st = "Stop";
+                }
+                else {
+                    this.st = "Start";
+                    this.$nextTick(() => {this.record = true});
+                    window.location.reload();
+
+                }
+            },
             onEnd ({ lastSentence, transcription }) {
                 this.words = transcription
-                alert(this.words)
-                this.lastSentence = lastSentence
+                this.text = this.text+lastSentence
+                Vue.VueLocalStorage.set('text', this.text);
+
             }
         }
     }
